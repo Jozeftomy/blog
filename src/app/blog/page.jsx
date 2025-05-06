@@ -1,59 +1,17 @@
-import React from "react";
-import Card from "../compoments/Card";
+'use client';
+import { useRouter } from 'next/navigation';
+import React from 'react';
+import Card from "../compoments/Card"; 
 import Subscription from "../compoments/Subscription";
+import posts from '../data/Post'; 
 
-const posts = [
-  {
-    image: "/images/laptop1.png",
-    title: "Lorem ipsum dolor",
-    date: "April 24, 2022",
-    readTime: "5 min read",
-    description:
-      "Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-  },
-  {
-    image: "/images/bulb2.png",
-    title: "Lorem ipsum dolor",
-    date: "April 03, 2022",
-    readTime: "4 min read",
-    description:
-      "Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-  },
-  {
-    image: "/images/book.png",
-    title: "Lorem ipsum dolor",
-    date: "March 12, 2022",
-    readTime: "6 min read",
-    description:
-      "Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-  },
-  {
-    image: "/images/laptop2.png",
-    title: "Lorem ipsum dolor",
-    date: "April 24, 2022",
-    readTime: "5 min read",
-    description:
-      "Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-  },
-  {
-    image: "/images/notebook.png",
-    title: "Lorem ipsum dolor",
-    date: "April 03, 2022",
-    readTime: "4 min read",
-    description:
-      "Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-  },
-  {
-    image: "/images/frame.png",
-    title: "Lorem ipsum dolor",
-    date: "March 12, 2022",
-    readTime: "6 min read",
-    description:
-      "Nunc non posuere consectetur, justo erat semper enim, non hendrerit dui odio id enim.",
-  },
-];
+export default function BlogPage() {
+  const router = useRouter();
 
-export default function PostsPage() {
+  const handlePostClick = (id) => {
+    router.push(`/blog/${id}`);
+  };
+
   return (
     <div className="w-full min-h-screen px-4 py-8 flex flex-col gap-8 md:px-8 lg:px-16 xl:px-24">
       <div className="text-center">
@@ -66,11 +24,14 @@ export default function PostsPage() {
       </div>
 
       <div className="grid gap-12 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-  {posts.map((post, index) => (
-    <Card key={index} {...post} />
-  ))}
-</div>
-
+        {posts.map((post) => (
+          <Card
+            key={post.id}
+            {...post}
+            onClick={() => handlePostClick(post.id)}
+          />
+        ))}
+      </div>
 
       <Subscription />
     </div>

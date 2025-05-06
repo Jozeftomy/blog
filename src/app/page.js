@@ -1,7 +1,7 @@
 import Intro from "./compoments/Intro";
 import Projects from "./compoments/Projects";
-import PostCard from "./compoments/Card";
-import Subscription from "./compoments/Subscription"; // <-- Import Subscription
+import Card from "./compoments/Card";
+import Subscription from "./compoments/Subscription"; 
 
 const posts = [
   {
@@ -53,11 +53,9 @@ export default function Home() {
       {/* Card Grid */}
       <div className="grid gap-6 mt-4 md:px-10 lg:px-14 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post, index) => (
-          <PostCard key={index} {...post} />
+          <Card key={index} {...post} />
         ))}
       </div>
-
-      {/* Subscription Section */}
       <Subscription />
     </div>
   );
