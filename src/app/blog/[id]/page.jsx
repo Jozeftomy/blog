@@ -2,10 +2,9 @@ import React from 'react';
 import Subscription from '../../compoments/Subscription';
 import posts from '../../data/Post';
 
-const Blogpage = ({ params }) => {
+export default async function Blogpage({ params }) {
     const { id } = params;
-  
-    const post = posts.find(p => p.id === Number(id));
+    const post = posts.find((p) => p.id === Number(id));
   
     if (!post) {
       return (
@@ -14,7 +13,6 @@ const Blogpage = ({ params }) => {
         </main>
       );
     }
-  
     return (
       <main className="w-full min-h-screen p-3 flex items-center justify-center px-10 2xl:w-[1500px]">
         <div className="w-full min-h-screen flex flex-col gap-8">
@@ -94,5 +92,4 @@ const Blogpage = ({ params }) => {
       </main>
     );
   };
-  
-  export default Blogpage;
+
