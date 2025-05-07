@@ -32,7 +32,7 @@ const posts = [
 
 export default function Home() {
   return (
-    <div className="w-full min-h-screen flex flex-col p-4 gap-5 2xl:w-[1386px]">
+    <div className="w-full min-h-screen flex flex-col gap-5 2xl:w-[1386px]">
       <Intro />
       
       <h1 className="text-[24px] font-bold w-full md:px-10 lg:px-14">

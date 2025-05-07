@@ -22,7 +22,7 @@ export default async function Blogpage({ params }) {
   }
 
   return (
-    <main className="w-full min-h-screen p-3 flex items-center justify-center px-10 2xl:w-[1500px]">
+    <main className="w-full min-h-screen p-3 flex items-center justify-center px-10 max-w-[1500px] ">
       <div className="w-full min-h-screen flex flex-col gap-8">
         <h1 className="text-[25px] text-center font-bold md:text-[37px]">
           {post.title}
